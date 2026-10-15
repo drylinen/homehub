@@ -1,0 +1,195 @@
+/* ── Reset & Base ───────────────────────────────── */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg:          #121212;
+    --surface:     #1e1e1e;
+    --surface-alt: #282828;
+    --border:      #333333;
+    --accent:      #5e9eff;
+    --text:        #e0e0e0;
+    --text-dim:    #888888;
+    --radius:      12px;
+    --radius-sm:   8px;
+
+    /* ── Cell size ── */
+    --cell-width:  110px;
+    --cell-height: 35px;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Fira Sans', system-ui, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+}
+
+/* ── Container ──────────────────────────────────── */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ── Top Bar ────────────────────────────────────── */
+.top-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex-shrink: 0;
+}
+
+/* ── Header Rows ────────────────────────────────── */
+.header-row {
+    width: 100%;
+}
+
+.header-row--tabs {
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+}
+
+/* ── Search Box ─────────────────────────────────── */
+.search-box {
+    width: 100%;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 16px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--text);
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+
+.search-box input::placeholder {
+    color: var(--text-dim);
+}
+
+.search-box input:focus {
+    border-color: var(--accent);
+}
+
+/* ── Tabs ───────────────────────────────────────── */
+.tabs {
+    display: flex;
+    gap: 8px;
+}
+
+.tab {
+    padding: 10px 20px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.tab:hover {
+    background: var(--surface-alt);
+    color: var(--text);
+}
+
+.tab.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--surface-alt);
+}
+
+/* ── Main Area ──────────────────────────────────── */
+.main-area {
+    flex: 1;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    overflow-y: auto;
+}
+
+/* ── Views ──────────────────────────────────────── */
+.view {
+    display: none;
+}
+
+.view.active {
+    display: block;
+}
+
+.view h2 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.view p {
+    color: var(--text-dim);
+    margin-bottom: 20px;
+}
+
+/* ── Cells Grid ─────────────────────────────────── */
+.cells-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--cell-width));
+    gap: 12px;
+    width: 100%;
+    max-height: calc(100vh - 260px);
+    overflow-y: auto;
+}
+
+.cell {
+    width: var(--cell-width);
+    height: var(--cell-height);
+    background: var(--surface-alt);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    user-select: none;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    position: relative;
+    padding: 8px 12px;
+}
+
+.cell:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent);
+}
+
+.cell:active {
+    cursor: grabbing;
+}
+
+.cell.dragging {
+    opacity: 0.4;
+    border-style: dashed;
+    transform: scale(0.95);
+}
+
+.cell.drag-over {
+    border-color: var(--accent);
+    box-shadow: 0 0 12px var(--accent);
+    transform: scale(1.03);
+}
