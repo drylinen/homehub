@@ -43,16 +43,24 @@ body {
 /* ── Top Bar ────────────────────────────────────── */
 .top-bar {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
+    flex-direction: column;
+    gap: 0;
     flex-shrink: 0;
+}
+
+/* ── Header Rows ────────────────────────────────── */
+.header-row {
+    width: 100%;
+}
+
+.header-row--tabs {
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
 }
 
 /* ── Search Box ─────────────────────────────────── */
 .search-box {
-    flex: 1;
-    max-width: 400px;
+    width: 100%;
 }
 
 .search-box input {

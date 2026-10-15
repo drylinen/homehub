@@ -11,17 +11,23 @@
     <div class="container">
         <!-- Top Bar: Search + Tabs -->
         <header class="top-bar">
-            <form class="search-box" action="https://www.google.com/search" method="GET" target="_top">
-                <input type="text" name="q" placeholder="Search Google..." autocomplete="off" />
-            </form>
+            <!-- Row 1: Full-width search -->
+            <div class="header-row header-row--search">
+                <form class="search-box" action="https://www.google.com/search" method="GET" target="_top">
+                    <input type="text" name="q" placeholder="Search Google..." autocomplete="off" />
+                </form>
+            </div>
 
-            <nav class="tabs">
-                <button class="tab active" data-view="view-daily">Daily</button>
-                <button class="tab" data-view="view-finance">Finance</button>
-                <button class="tab" data-view="view-home">Home</button>
-                <button class="tab" data-view="view-travel">Travel</button>
-                <button class="tab" data-view="view-settings">Settings</button>
-            </nav>
+            <!-- Row 2: Nav tabs (left-aligned) -->
+            <div class="header-row header-row--tabs">
+                <nav class="tabs">
+                    <button class="tab active" data-view="view-daily">Daily</button>
+                    <button class="tab" data-view="view-finance">Finance</button>
+                    <button class="tab" data-view="view-home">Home</button>
+                    <button class="tab" data-view="view-travel">Travel</button>
+                    <button class="tab" data-view="view-settings">Settings</button>
+                </nav>
+            </div>
         </header>
 
         <!-- Main Content Area -->
