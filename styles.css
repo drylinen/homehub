@@ -131,4 +131,50 @@ body {
 
 .view p {
     color: var(--text-dim);
+    margin-bottom: 20px;
+}
+
+/* ── Cells Grid ─────────────────────────────────── */
+.cells-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 12px;
+    width: 100%;
+    aspect-ratio: 10 / 5;
+    max-height: calc(100vh - 260px);
+}
+
+.cell {
+    background: var(--surface-alt);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    user-select: none;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    position: relative;
+}
+
+.cell:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent);
+}
+
+.cell:active {
+    cursor: grabbing;
+}
+
+.cell.dragging {
+    opacity: 0.4;
+    border-style: dashed;
+    transform: scale(0.95);
+}
+
+.cell.drag-over {
+    border-color: var(--accent);
+    box-shadow: 0 0 12px var(--accent);
+    transform: scale(1.03);
 }
