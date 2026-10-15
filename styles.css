@@ -73,6 +73,7 @@ body {
     font-size: 1rem;
     font-family: inherit;
     outline: none;
+    overflow: hidden;
     transition: border-color 0.2s;
 }
 
