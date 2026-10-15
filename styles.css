@@ -15,6 +15,10 @@
     --text-dim:    #888888;
     --radius:      12px;
     --radius-sm:   8px;
+
+    /* ── Cell size ── */
+    --cell-width:  110px;
+    --cell-height: 35px;
 }
 
 html, body {
@@ -146,15 +150,16 @@ body {
 /* ── Cells Grid ─────────────────────────────────── */
 .cells-grid {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fill, var(--cell-width));
     gap: 12px;
     width: 100%;
-    aspect-ratio: 10 / 5;
     max-height: calc(100vh - 260px);
+    overflow-y: auto;
 }
 
 .cell {
+    width: var(--cell-width);
+    height: var(--cell-height);
     background: var(--surface-alt);
     border: 2px solid var(--border);
     border-radius: var(--radius);
@@ -165,6 +170,7 @@ body {
     user-select: none;
     transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
     position: relative;
+    padding: 8px 12px;
 }
 
 .cell:hover {
