@@ -3,11 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Isometra">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira Sans">
     <link rel="stylesheet" href="styles.css">
     <title>HomeHub</title>
 </head>
 <body>
+    <div class="container">
+        <!-- Top Bar: Search + Tabs -->
+        <header class="top-bar">
+            <form class="search-box" action="https://www.google.com/search" method="GET" target="_top">
+                <input type="text" name="q" placeholder="Search Google..." autocomplete="off" />
+            </form>
+
+            <nav class="tabs">
+                <button class="tab active" data-view="view-daily">Daily</button>
+                <button class="tab" data-view="view-finance">Finance</button>
+                <button class="tab" data-view="view-home">Home</button>
+                <button class="tab" data-view="view-travel">Travel</button>
+                <button class="tab" data-view="view-settings">Settings</button>
+            </nav>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-area">
+            <section id="view-daily" class="view active">
+                <h2>Daily</h2>
+                <p>Your daily overview.</p>
+            </section>
+            <section id="view-finance" class="view">
+                <h2>Finance</h2>
+                <p>Your finance dashboard.</p>
+            </section>
+            <section id="view-home" class="view">
+                <h2>Home</h2>
+                <p>Your home management panel.</p>
+            </section>
+            <section id="view-travel" class="view">
+                <h2>Travel</h2>
+                <p>Your travel planner.</p>
+            </section>
+            <section id="view-settings" class="view">
+                <h2>Settings</h2>
+                <p>Configure your preferences.</p>
+            </section>
+        </main>
+    </div>
 
     <script src="scripts.js"></script>
 </body>
